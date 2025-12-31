@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Check, AlertCircle } from 'lucide-react';
 import { PRICING_PLANS } from '../constants';
+import { EditableText } from './EditableText';
 
 export const Pricing: React.FC = () => {
     const [isAnnual, setIsAnnual] = useState(false);
@@ -70,8 +71,12 @@ export const Pricing: React.FC = () => {
                             )}
 
                             <div className="p-6 lg:p-8 flex-1">
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                                <p className="text-gray-500 text-sm mb-6 min-h-[40px]">{plan.description}</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                                    <EditableText section="pricing" field={`plan_${plan.id}_name`} defaultValue={plan.name} />
+                                </h3>
+                                <p className="text-gray-500 text-sm mb-6 min-h-[40px]">
+                                    <EditableText section="pricing" field={`plan_${plan.id}_desc`} defaultValue={plan.description} type="textarea" />
+                                </p>
 
                                 <div className="flex items-baseline mb-2">
                                     <span className="text-4xl font-bold text-gray-900">${getPrice(plan.price)}</span>

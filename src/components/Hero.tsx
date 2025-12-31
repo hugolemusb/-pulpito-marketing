@@ -1,5 +1,6 @@
 import React from 'react';
 import { PlayCircle, Star, Users, Globe, ArrowRight } from 'lucide-react';
+import { EditableText } from './EditableText';
 
 export const Hero: React.FC = () => {
     return (
@@ -22,12 +23,28 @@ export const Hero: React.FC = () => {
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6">
-                            Tu Asistente Bíblico <br />
-                            <span className="text-gold-gradient">Inteligente y Profundo</span>
+                            <EditableText
+                                section="hero"
+                                field="title"
+                                defaultValue="Tu Asistente Bíblico"
+                                className="block"
+                            />
+                            <span className="text-gold-gradient">
+                                <EditableText
+                                    section="hero"
+                                    field="subtitle"
+                                    defaultValue="Inteligente y Profundo"
+                                />
+                            </span>
                         </h1>
 
                         <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
-                            Púlpito Dinámico combina inteligencia artificial avanzada con teología sana para ayudarte a investigar, exégesis y crear bosquejos impactantes en minutos, no en horas.
+                            <EditableText
+                                section="hero"
+                                field="description"
+                                defaultValue="Púlpito Dinámico combina inteligencia artificial avanzada con teología sana para ayudarte a investigar, exégesis y crear bosquejos impactantes en minutos, no en horas."
+                                type="textarea"
+                            />
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

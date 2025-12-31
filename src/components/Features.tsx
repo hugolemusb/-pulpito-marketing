@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, PenTool, Search, Globe, Smartphone } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { EditableText } from './EditableText';
 
 interface Feature {
     id: string;
@@ -60,7 +61,7 @@ export const Features: React.FC = () => {
                         Potencia tu Ministerio
                     </span>
                     <h2 className="mt-4 text-3xl md:text-5xl font-serif font-bold text-ministry-blue">
-                        Todo lo que necesitas para predicar
+                        <EditableText section="features" field="mainTitle" defaultValue="Todo lo que necesitas para predicar" />
                     </h2>
                 </div>
 
@@ -81,7 +82,9 @@ export const Features: React.FC = () => {
                                     <feature.icon size={20} />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-base">{feature.title}</h3>
+                                    <h3 className="font-bold text-base">
+                                        <EditableText section="features" field={`tab_${feature.id}_title`} defaultValue={feature.title} />
+                                    </h3>
                                 </div>
                             </button>
                         ))}
@@ -97,12 +100,14 @@ export const Features: React.FC = () => {
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-8">
-                                    <h3 className="text-3xl font-serif font-bold text-white">{activeFeature.title}</h3>
+                                    <h3 className="text-3xl font-serif font-bold text-white">
+                                        <EditableText section="features" field={`feature_${activeFeature.id}_title`} defaultValue={activeFeature.title} />
+                                    </h3>
                                 </div>
                             </div>
                             <div className="p-8 flex-1 flex flex-col justify-between">
                                 <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                                    {activeFeature.desc}
+                                    <EditableText section="features" field={`feature_${activeFeature.id}_desc`} defaultValue={activeFeature.desc} type="textarea" />
                                 </p>
                                 <div>
                                     <a href="#signup" className="inline-flex items-center text-ministry-blue font-bold hover:text-ministry-gold transition-colors group">
