@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BookOpen, PenTool, Search, Globe, Smartphone, LucideIcon } from 'lucide-react';
+import { BookOpen, PenTool, Search, Globe, Smartphone } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 interface Feature {
     id: string;
@@ -71,8 +72,8 @@ export const Features: React.FC = () => {
                                 key={feature.id}
                                 onClick={() => setActiveTab(index)}
                                 className={`w-full text-left p-4 rounded-xl flex items-center gap-4 transition-all duration-300 group ${activeTab === index
-                                        ? 'bg-ministry-blue text-white shadow-lg shadow-blue-900/20'
-                                        : 'hover:bg-gray-50 text-gray-600'
+                                    ? 'bg-ministry-blue text-white shadow-lg shadow-blue-900/20'
+                                    : 'hover:bg-gray-50 text-gray-600'
                                     }`}
                             >
                                 <div className={`p-2 rounded-lg transition-colors ${activeTab === index ? 'bg-white/10 text-ministry-gold' : 'bg-gray-100 text-gray-400 group-hover:text-ministry-blue'
