@@ -101,11 +101,15 @@ export const EditableText: React.FC<EditableTextProps> = ({
         return (
             <span
                 onClick={() => setIsEditing(true)}
-                className={clsx("relative cursor-pointer hover:bg-yellow-100 hover:ring-2 hover:ring-ministry-gold rounded transition-all px-1 -mx-1 group", className)}
+                className={clsx(
+                    "relative cursor-pointer rounded transition-all px-1 -mx-1",
+                    "border border-dashed border-ministry-gold/50 hover:bg-yellow-50 hover:border-solid hover:border-ministry-gold",
+                    className
+                )}
                 title="Clic para editar"
             >
-                {content || <span className="text-gray-400 italic font-mono">[Vacio]</span>}
-                <Pencil className="hidden group-hover:inline-block absolute -top-4 -right-4 bg-white text-ministry-blue p-1 rounded-full shadow-sm w-5 h-5" />
+                {content || <span className="text-gray-400 italic font-mono text-sm px-2">[Vacío - Clic para editar]</span>}
+                <Pencil className="hidden md:inline-block absolute -top-3 -right-3 bg-ministry-gold text-white p-0.5 rounded-full w-4 h-4 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" />
             </span>
         );
     }
